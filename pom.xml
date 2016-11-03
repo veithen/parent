@@ -26,7 +26,7 @@
     </developers>
 
     <scm>
-        <url>https://github.com/veithen/parent</url>
+        <url>https://github.com/veithen/parent/tree/master</url>
         <connection>scm:git:http://github.com/veithen/parent.git</connection>
         <developerConnection>scm:git:https://github.com/veithen/parent.git</developerConnection>
         <tag>HEAD</tag>
@@ -39,6 +39,7 @@
     </distributionManagement>
 
     <properties>
+        <github.repository>parent</github.repository>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
@@ -68,6 +69,46 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>initialize</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script><![CDATA[
+                                    repository = project.properties['github.repository']
+                                    if (project.groupId != 'com.github.veithen' && repository == 'parent') {
+                                        throw new Error('github.repository not set')
+                                    }
+                                    if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
+                                        throw new Error('project.scm.url not set correctly')
+                                    }
+                                    if (project.scm.connection != "scm:git:http://github.com/veithen/${repository}.git") {
+                                        throw new Error('project.scm.connection not set correctly')
+                                    }
+                                    if (project.scm.developerConnection != "scm:git:https://github.com/veithen/${repository}.git") {
+                                        throw new Error('project.scm.developerConnection not set correctly')
+                                    }
+                                ]]></script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>2.4.7</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
