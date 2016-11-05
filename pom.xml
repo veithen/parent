@@ -88,6 +88,9 @@
                                     if (project.groupId != 'com.github.veithen' && repository == 'parent') {
                                         throw new Error('github.repository not set')
                                     }
+                                    if (project.url.startsWith('https://github.com/') && project.url != "https://github.com/veithen/${repository}") {
+                                        throw new Error('project.url not set correctly')
+                                    }
                                     if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
                                         throw new Error('project.scm.url not set correctly')
                                     }
