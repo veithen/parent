@@ -64,6 +64,13 @@
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
                     <canUpdateCopyright>true</canUpdateCopyright>
                     <canUpdateDescription>true</canUpdateDescription>
+                    <roots>
+                        <root>${project.basedir}</root>
+                    </roots>
+                    <includes>
+                        <include>pom.xml</include>
+                        <include>src/**</include>
+                    </includes>
                     <extraExtensions>
                         <md>xml</md>
                     </extraExtensions>
