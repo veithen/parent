@@ -43,6 +43,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
+        <skipDeploy>false</skipDeploy>
     </properties>
 
     <build>
@@ -106,17 +107,20 @@
                                     if (project.groupId != 'com.github.veithen' && repository == 'parent') {
                                         throw new Error('github.repository not set')
                                     }
-                                    if (project.url.startsWith('https://github.com/') && project.url != "https://github.com/veithen/${repository}") {
-                                        throw new Error('project.url not set correctly')
-                                    }
-                                    if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
-                                        throw new Error('project.scm.url not set correctly')
-                                    }
-                                    if (project.scm.connection != "scm:git:http://github.com/veithen/${repository}.git") {
-                                        throw new Error('project.scm.connection not set correctly')
-                                    }
-                                    if (project.scm.developerConnection != "scm:git:https://github.com/veithen/${repository}.git") {
-                                        throw new Error('project.scm.developerConnection not set correctly')
+                                    // We only care about the completeness of the Maven metadata if we actually deploy the artifact.
+                                    if (project.properties['skipDeploy'] == 'false') {
+                                        if (project.url.startsWith('https://github.com/') && project.url != "https://github.com/veithen/${repository}") {
+                                            throw new Error('project.url not set correctly')
+                                        }
+                                        if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
+                                            throw new Error('project.scm.url not set correctly')
+                                        }
+                                        if (project.scm.connection != "scm:git:http://github.com/veithen/${repository}.git") {
+                                            throw new Error('project.scm.connection not set correctly')
+                                        }
+                                        if (project.scm.developerConnection != "scm:git:https://github.com/veithen/${repository}.git") {
+                                            throw new Error('project.scm.developerConnection not set correctly')
+                                        }
                                     }
                                 ]]></script>
                             </scripts>
@@ -163,17 +167,34 @@
                 <version>1.6.5</version>
                 <executions>
                     <execution>
+                        <id>deploy</id>
                         <phase>deploy</phase>
                         <goals>
                             <goal>deploy</goal>
                         </goals>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <skipNexusStagingDeployMojo>${skipDeploy}</skipNexusStagingDeployMojo>
+                            <!-- By default, the remote staging is done in the last execution of the deploy goal
+                                 in the reactor. However, if skipNexusStagingDeployMojo=true for that execution,
+                                 then that would be skipped as well. To avoid that problem, disable remote staging
+                                 altogether on the deploy goal, and instead configure the deploy-staged goal
+                                 (See below). -->
+                            <skipRemoteStaging>true</skipRemoteStaging>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>deploy-staged</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy-staged</goal>
+                        </goals>
+                    </execution>
                 </executions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
