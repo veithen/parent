@@ -79,6 +79,9 @@
                         <!-- Travis executes the build with -DskipTests=true first. -->
                         <skipInstallation>${skipTests}</skipInstallation>
                         <skipInvocation>${skipTests}</skipInvocation>
+                        <!-- Enable the JaCoCo agent. This works because multiple JaCoCo sessions
+                             can be written to the same jacoco.exec file. -->
+                        <mavenOpts>${argLine}</mavenOpts>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -205,6 +208,24 @@
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>${project.groupId}.*</include>
+                            </includes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
