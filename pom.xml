@@ -10,6 +10,7 @@
     <name>com.github.veithen parent POM</name>
     <description>Parent POM for com.github.veithen</description>
     <url>https://github.com/veithen/parent</url>
+    <inceptionYear>2016</inceptionYear>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -120,6 +121,14 @@
                         <md>xml</md>
                     </extraExtensions>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check-file-header</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -147,6 +156,10 @@
                         <configuration>
                             <scripts>
                                 <script><![CDATA[
+                                    if (project.groupId == 'com.github.veithen' && project.artifactId == 'parent') {
+                                        project.properties['license.skipCheckLicense'] = 'true'
+                                    }
+                                    
                                     repository = project.properties['github.repository']
                                     if (project.groupId != 'com.github.veithen' && repository == 'parent') {
                                         throw new Error('github.repository not set')
