@@ -190,7 +190,7 @@
             <plugin>
                 <groupId>com.github.veithen.phos</groupId>
                 <artifactId>enforcer-maven-plugin</artifactId>
-                <version>0.2-SNAPSHOT</version>
+                <version>0.2</version>
                 <executions>
                     <execution>
                         <goals>
@@ -232,7 +232,7 @@
             <plugin>
                 <groupId>com.github.veithen.phos</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.2-SNAPSHOT</version>
+                <version>0.2</version>
                 <executions>
                     <execution>
                         <goals>
