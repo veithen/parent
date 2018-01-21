@@ -10,7 +10,6 @@
     <name>com.github.veithen parent POM</name>
     <description>Parent POM for com.github.veithen</description>
     <url>https://github.com/veithen/parent</url>
-    <inceptionYear>2016</inceptionYear>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -158,6 +157,7 @@
                                 <script><![CDATA[
                                     if (project.groupId == 'com.github.veithen' && project.artifactId == 'parent') {
                                         project.properties['license.skipCheckLicense'] = 'true'
+                                        project.properties['license.inceptionYear'] = '0'
                                     }
                                     
                                     repository = project.properties['github.repository']
