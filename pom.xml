@@ -126,6 +126,9 @@
                         <goals>
                             <goal>check-file-header</goal>
                         </goals>
+                        <configuration>
+                            <failOnMissingHeader>true</failOnMissingHeader>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
