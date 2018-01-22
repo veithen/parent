@@ -43,6 +43,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
+        <javaVersion>1.8</javaVersion>
+        <aspectj.version>1.8.13</aspectj.version>
         <skipDeploy>false</skipDeploy>
     </properties>
 
@@ -65,9 +67,51 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>${javaVersion}</source>
+                        <target>${javaVersion}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>1.11</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                            <configuration>
+                                <source>${javaVersion}</source>
+                                <target>${javaVersion}</target>
+                                <complianceLevel>${javaVersion}</complianceLevel>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjtools</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.7</version>
@@ -182,6 +226,18 @@
                                             throw new Error('project.scm.developerConnection not set correctly')
                                         }
                                     }
+                                    
+                                    javaVersion = project.properties['javaVersion']
+                                    if (javaVersion == '1.6') {
+                                        project.properties['signatureArtifactId'] = 'java16'
+                                        project.properties['signatureVersion'] = '1.1'
+                                    } else if (javaVersion == '1.7') {
+                                        project.properties['signatureArtifactId'] = 'java17'
+                                        project.properties['signatureVersion'] = '1.0'
+                                    } else if (javaVersion == '1.8') {
+                                        project.properties['signatureArtifactId'] = 'java18'
+                                        project.properties['signatureVersion'] = '1.0'
+                                    }
                                 ]]></script>
                             </scripts>
                         </configuration>
@@ -196,14 +252,6 @@
                 </dependencies>
             </plugin>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>com.github.veithen.phos</groupId>
                 <artifactId>enforcer-maven-plugin</artifactId>
                 <version>0.2</version>
@@ -212,6 +260,26 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>1.16</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <signature>
+                                <groupId>org.codehaus.mojo.signature</groupId>
+                                <artifactId>${signatureArtifactId}</artifactId>
+                                <version>${signatureVersion}</version>
+                            </signature>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
