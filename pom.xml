@@ -171,7 +171,9 @@
                         <include>src/**</include>
                     </includes>
                     <extraExtensions>
+                        <bsh>java</bsh>
                         <md>xml</md>
+                        <mdo>xml</mdo>
                     </extraExtensions>
                 </configuration>
                 <executions>
