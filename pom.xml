@@ -381,7 +381,6 @@
             <plugin>
                 <!-- Disable the default deploy execution -->
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
                 <executions>
                     <execution>
                         <id>default-deploy</id>
