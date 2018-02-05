@@ -219,7 +219,8 @@
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.6</version>
+                <!-- 1.5 is the last version supporting Java 7 -->
+                <version>1.5</version>
                 <executions>
                     <execution>
                         <id>initialize</id>
