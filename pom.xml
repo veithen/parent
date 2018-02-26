@@ -307,6 +307,10 @@
                                     <ignoredScopes>
                                         <ignoredScope>test</ignoredScope>
                                     </ignoredScopes>
+                                    <!-- Prevent the enforcer from rejecting ASM 6.0 -->
+                                    <ignoreClasses>
+                                        <ignoreClass>module-info</ignoreClass>
+                                    </ignoreClasses>
                                 </enforceBytecodeVersion>
                             </rules>
                             <fail>true</fail>
@@ -317,7 +321,7 @@
                     <dependency>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>extra-enforcer-rules</artifactId>
-                        <version>1.0-beta-6</version>
+                        <version>1.0-beta-7</version>
                     </dependency>
                 </dependencies>
             </plugin>
