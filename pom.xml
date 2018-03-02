@@ -44,7 +44,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
-        <aspectj.version>1.8.13</aspectj.version>
+        <!-- 1.8.9 is the last version supporting Java 7 -->
+        <aspectj.version>1.8.9</aspectj.version>
         <skipDeploy>false</skipDeploy>
     </properties>
 
@@ -101,7 +102,8 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
-                    <version>1.11</version>
+                    <!-- 1.10 is the last version supporting Java 7 -->
+                    <version>1.10</version>
                     <executions>
                         <execution>
                             <goals>
