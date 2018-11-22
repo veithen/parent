@@ -546,6 +546,8 @@
                 <property>
                     <name>env.TRAVIS_JOB_ID</name>
                 </property>
+                <!-- TODO: there seems to be a TLS problem with Java 11 -->
+                <jdk>,11)</jdk>
             </activation>
             <build>
                 <plugins>
