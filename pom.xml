@@ -179,6 +179,11 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.0.1</version>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.veithen.maven</groupId>
+                    <artifactId>jacoco-report-maven-plugin</artifactId>
+                    <version>0.1-SNAPSHOT</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -547,7 +552,6 @@
                     <plugin>
                         <groupId>com.github.veithen.maven</groupId>
                         <artifactId>jacoco-report-maven-plugin</artifactId>
-                        <version>0.1-SNAPSHOT</version>
                         <executions>
                             <execution>
                                 <goals>
