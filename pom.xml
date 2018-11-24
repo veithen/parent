@@ -277,15 +277,19 @@
                                     if (javaVersion == '1.5') {
                                         project.properties['signatureArtifactId'] = 'java15'
                                         project.properties['signatureVersion'] = '1.0'
+                                        project.properties['javaRelease'] = '5'
                                     } else if (javaVersion == '1.6') {
                                         project.properties['signatureArtifactId'] = 'java16'
                                         project.properties['signatureVersion'] = '1.1'
+                                        project.properties['javaRelease'] = '6'
                                     } else if (javaVersion == '1.7') {
                                         project.properties['signatureArtifactId'] = 'java17'
                                         project.properties['signatureVersion'] = '1.0'
+                                        project.properties['javaRelease'] = '7'
                                     } else if (javaVersion == '1.8') {
                                         project.properties['signatureArtifactId'] = 'java18'
                                         project.properties['signatureVersion'] = '1.0'
+                                        project.properties['javaRelease'] = '8'
                                     }
                                 ]]></script>
                             </scripts>
@@ -479,6 +483,22 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>java-release</id>
+            <activation>
+                <jdk>[9,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <release>${javaRelease}</release>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile> 
             <id>release</id>
             <build>
