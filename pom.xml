@@ -499,9 +499,14 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <release>${javaRelease}</release>
-                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-compile</id>
+                                <configuration>
+                                    <release>${javaRelease}</release>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
