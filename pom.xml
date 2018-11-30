@@ -186,11 +186,6 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.0.1</version>
                 </plugin>
-                <plugin>
-                    <groupId>com.github.veithen.maven</groupId>
-                    <artifactId>jacoco-report-maven-plugin</artifactId>
-                    <version>0.1-SNAPSHOT</version>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -419,6 +414,18 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>com.github.veithen.maven</groupId>
+                <artifactId>jacoco-report-maven-plugin</artifactId>
+                <version>0.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>upload</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <!-- Disable the default deploy execution -->
                 <artifactId>maven-deploy-plugin</artifactId>
                 <executions>
@@ -566,29 +573,6 @@
                                         <format>zip</format>
                                     </formats>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>travis</id>
-            <activation>
-                <property>
-                    <name>env.TRAVIS_JOB_ID</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.veithen.maven</groupId>
-                        <artifactId>jacoco-report-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>upload</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
