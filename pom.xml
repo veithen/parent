@@ -189,6 +189,10 @@
                         <source>${javaVersion}</source>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
