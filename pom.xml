@@ -500,6 +500,31 @@
                     <tag>${project.version}</tag>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.github.veithen</groupId>
+                <artifactId>eclipse-settings-maven-plugin</artifactId>
+                <version>0.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <bundles>
+                        <bundle>
+                            <id>org.eclipse.jdt.core</id>
+                            <settings>
+                                <org.eclipse.jdt.core.formatter.comment.line_length>100</org.eclipse.jdt.core.formatter.comment.line_length>
+                                <org.eclipse.jdt.core.formatter.lineSplit>100</org.eclipse.jdt.core.formatter.lineSplit>
+                                <org.eclipse.jdt.core.formatter.tabulation.char>space</org.eclipse.jdt.core.formatter.tabulation.char>
+                                <org.eclipse.jdt.core.formatter.indentation.size>4</org.eclipse.jdt.core.formatter.indentation.size>
+                            </settings>
+                        </bundle>
+                    </bundles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
