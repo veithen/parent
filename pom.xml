@@ -501,7 +501,7 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>com.github.veithen</groupId>
+                <groupId>com.github.veithen.maven</groupId>
                 <artifactId>eclipse-settings-maven-plugin</artifactId>
                 <version>0.1-SNAPSHOT</version>
                 <executions>
