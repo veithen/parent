@@ -519,13 +519,25 @@
                 <configuration>
                     <bundles>
                         <bundle>
-                            <id>org.eclipse.jdt.core</id>
-                            <settings>
-                                <org.eclipse.jdt.core.formatter.comment.line_length>100</org.eclipse.jdt.core.formatter.comment.line_length>
-                                <org.eclipse.jdt.core.formatter.lineSplit>100</org.eclipse.jdt.core.formatter.lineSplit>
-                                <org.eclipse.jdt.core.formatter.tabulation.char>space</org.eclipse.jdt.core.formatter.tabulation.char>
-                                <org.eclipse.jdt.core.formatter.indentation.size>4</org.eclipse.jdt.core.formatter.indentation.size>
-                            </settings>
+                            <symbolicName>org.eclipse.jdt.core</symbolicName>
+                            <properties>
+                                <property>
+                                    <name>org.eclipse.jdt.core.formatter.comment.line_length</name>
+                                    <value>100</value>
+                                </property>
+                                <property>
+                                    <name>org.eclipse.jdt.core.formatter.lineSplit</name>
+                                    <value>100</value>
+                                </property>
+                                <property>
+                                    <name>org.eclipse.jdt.core.formatter.tabulation.char</name>
+                                    <value>space</value>
+                                </property>
+                                <property>
+                                    <name>org.eclipse.jdt.core.formatter.indentation.size</name>
+                                    <value>4</value>
+                                </property>
+                            </properties>
                         </bundle>
                     </bundles>
                 </configuration>
