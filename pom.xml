@@ -580,6 +580,19 @@
                                 </property>
                             </properties>
                         </bundle>
+                        <bundle>
+                            <symbolicName>org.jboss.tools.maven.apt</symbolicName>
+                            <properties>
+                                <property>
+                                    <name>org.jboss.tools.maven.apt.mode</name>
+                                    <value>jdt_apt</value>
+                                </property>
+                                <property>
+                                    <name>org.jboss.tools.maven.apt.aptProcessDuringReconcile</name>
+                                    <value>true</value>
+                                </property>
+                            </properties>
+                        </bundle>
                     </bundles>
                 </configuration>
             </plugin>
