@@ -48,6 +48,7 @@
         <jupiter.version>5.6.2</jupiter.version>
         <!-- 1.8.9 is the last version supporting Java 7 -->
         <aspectj.version>1.8.9</aspectj.version>
+        <errorprone.version>2.3.4</errorprone.version>
         <skipDeploy>false</skipDeploy>
     </properties>
 
@@ -108,6 +109,11 @@
                 <classifier>runtime</classifier>
                 <version>${jacoco.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.errorprone</groupId>
+                <artifactId>error_prone_annotations</artifactId>
+                <version>${errorprone.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -120,6 +126,17 @@
                     <configuration>
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
+                        <compilerArgs>
+                            <arg>-XDcompilePolicy=simple</arg>
+                            <arg>-Xplugin:ErrorProne</arg>
+                        </compilerArgs>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>com.google.errorprone</groupId>
+                                <artifactId>error_prone_core</artifactId>
+                                <version>2.3.4</version>
+                            </path>
+                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -617,7 +634,51 @@
 
     <profiles>
         <profile>
-            <id>java-release</id>
+            <id>jdk8</id>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.veithen.alta</groupId>
+                        <artifactId>alta-maven-plugin</artifactId>
+                        <version>0.6.2</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>generate-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <name>errorprone.javac.path</name>
+                                    <value>%file%</value>
+                                    <artifacts>
+                                        <artifact>
+                                            <groupId>com.google.errorprone</groupId>
+                                            <artifactId>javac</artifactId>
+                                            <version>9-dev-r4023-3</version>
+                                        </artifact>
+                                    </artifacts>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <fork>true</fork>
+                            <compilerArgs>
+                                <arg>-J-Xbootclasspath/p:${errorprone.javac.path}</arg>
+                            </compilerArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jdk9</id>
             <activation>
                 <jdk>[9,)</jdk>
             </activation>
