@@ -338,6 +338,8 @@
                                     if (project.groupId == 'com.github.veithen' && project.artifactId == 'parent') {
                                         project.properties['license.skipCheckLicense'] = 'true'
                                         project.properties['license.inceptionYear'] = '0'
+                                    } else {
+                                        assert project.version ==~ /\d+\.\d+\.\d+(-SNAPSHOT)?/ : 'Invalid project version'
                                     }
                                     
                                     repository = project.properties['github.repository']
