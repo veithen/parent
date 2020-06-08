@@ -500,13 +500,13 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
-                        <configuration>
-                            <includes>
-                                <include>${project.groupId}.*</include>
-                            </includes>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <includes>
+                        <include>${project.groupId}.*</include>
+                    </includes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>com.github.veithen.maven</groupId>
