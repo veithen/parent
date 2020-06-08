@@ -678,7 +678,7 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <configuration>
                             <fork>true</fork>
-                            <compilerArgs>
+                            <compilerArgs combine.children="append">
                                 <compilerArg>-J-Xbootclasspath/p:${errorprone.javac.path}</compilerArg>
                             </compilerArgs>
                         </configuration>
