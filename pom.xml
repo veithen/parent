@@ -130,7 +130,7 @@
                     <configuration>
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
-                        <compilerArgs>
+                        <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne</compilerArg>
                         </compilerArgs>
