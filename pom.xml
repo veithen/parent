@@ -131,15 +131,15 @@
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
                         <compilerArgs>
-                            <arg>-XDcompilePolicy=simple</arg>
-                            <arg>-Xplugin:ErrorProne</arg>
+                            <compilerArg>-XDcompilePolicy=simple</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne</compilerArg>
                         </compilerArgs>
                         <annotationProcessorPaths>
-                            <path>
+                            <annotationProcessorPath>
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
                                 <version>2.3.4</version>
-                            </path>
+                            </annotationProcessorPath>
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
@@ -679,7 +679,7 @@
                         <configuration>
                             <fork>true</fork>
                             <compilerArgs>
-                                <arg>-J-Xbootclasspath/p:${errorprone.javac.path}</arg>
+                                <compilerArg>-J-Xbootclasspath/p:${errorprone.javac.path}</compilerArg>
                             </compilerArgs>
                         </configuration>
                     </plugin>
