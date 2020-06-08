@@ -134,7 +134,7 @@
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne</compilerArg>
                         </compilerArgs>
-                        <annotationProcessorPaths>
+                        <annotationProcessorPaths combine.children="append">
                             <annotationProcessorPath>
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
