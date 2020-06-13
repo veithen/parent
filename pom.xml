@@ -132,7 +132,7 @@
                         <target>${javaVersion}</target>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
-                            <compilerArg>-Xplugin:ErrorProne</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.*</compilerArg>
                         </compilerArgs>
                         <annotationProcessorPaths combine.children="append">
                             <annotationProcessorPath>
