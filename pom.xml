@@ -44,7 +44,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
-        <jacoco.version>0.8.5</jacoco.version>
+        <jacoco.version>0.8.6</jacoco.version>
         <jupiter.version>5.7.0</jupiter.version>
         <errorprone.version>2.3.4</errorprone.version>
         <skipDeploy>false</skipDeploy>
