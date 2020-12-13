@@ -432,6 +432,7 @@
                                 <artifactId>${signatureArtifactId}</artifactId>
                                 <version>${signatureVersion}</version>
                             </signature>
+                            <checkTestClasses>false</checkTestClasses>
                         </configuration>
                     </execution>
                 </executions>
