@@ -622,7 +622,7 @@
                     <plugin>
                         <groupId>com.github.veithen.alta</groupId>
                         <artifactId>alta-maven-plugin</artifactId>
-                        <version>0.6.2</version>
+                        <version>0.7.0</version>
                         <executions>
                             <execution>
                                 <phase>initialize</phase>
@@ -632,13 +632,15 @@
                                 <configuration>
                                     <name>errorprone.javac.path</name>
                                     <value>%file%</value>
-                                    <artifacts>
-                                        <artifact>
-                                            <groupId>com.google.errorprone</groupId>
-                                            <artifactId>javac</artifactId>
-                                            <version>9-dev-r4023-3</version>
-                                        </artifact>
-                                    </artifacts>
+                                    <artifactSet>
+                                        <artifacts>
+                                            <artifact>
+                                                <groupId>com.google.errorprone</groupId>
+                                                <artifactId>javac</artifactId>
+                                                <version>9-dev-r4023-3</version>
+                                            </artifact>
+                                        </artifacts>
+                                    </artifactSet>
                                 </configuration>
                             </execution>
                         </executions>
