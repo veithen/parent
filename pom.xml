@@ -252,6 +252,7 @@
                 <configuration>
                     <organizationName>Andreas Veithen</organizationName>
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                    <trimHeaderLine>true</trimHeaderLine>
                     <canUpdateCopyright>true</canUpdateCopyright>
                     <canUpdateDescription>true</canUpdateDescription>
                     <roots>
