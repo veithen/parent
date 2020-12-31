@@ -627,6 +627,9 @@
                          imports. -->
                     <style>aosp</style>
                     <skipSortingImports>true</skipSortingImports>
+                    <additionalSourceDirectories>
+                        <additionalSourceDirectory>src/it</additionalSourceDirectory>
+                    </additionalSourceDirectories>
                 </configuration>
                 <dependencies>
                     <dependency>
