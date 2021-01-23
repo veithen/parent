@@ -74,11 +74,6 @@
                 <version>${jupiter.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.google.truth</groupId>
-                <artifactId>truth</artifactId>
-                <version>1.1</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jacoco</groupId>
                 <artifactId>org.jacoco.agent</artifactId>
                 <version>${jacoco.version}</version>
