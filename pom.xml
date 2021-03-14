@@ -635,6 +635,7 @@
                         <version>0.7.0</version>
                         <executions>
                             <execution>
+                                <id>errorprone-javac-path</id>
                                 <phase>initialize</phase>
                                 <goals>
                                     <goal>generate-properties</goal>
