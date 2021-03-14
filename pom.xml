@@ -63,6 +63,11 @@
                 <artifactId>error_prone_annotations</artifactId>
                 <version>${errorprone.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.errorprone</groupId>
+                <artifactId>javac</artifactId>
+                <version>9-dev-r4023-3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -642,7 +647,6 @@
                                             <artifact>
                                                 <groupId>com.google.errorprone</groupId>
                                                 <artifactId>javac</artifactId>
-                                                <version>9-dev-r4023-3</version>
                                             </artifact>
                                         </artifacts>
                                     </artifactSet>
