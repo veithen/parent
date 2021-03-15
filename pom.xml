@@ -632,7 +632,7 @@
                     <plugin>
                         <groupId>com.github.veithen.alta</groupId>
                         <artifactId>alta-maven-plugin</artifactId>
-                        <version>0.7.0</version>
+                        <version>0.7.1</version>
                         <executions>
                             <execution>
                                 <id>errorprone-javac-path</id>
