@@ -45,7 +45,7 @@
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.6</jacoco.version>
-        <errorprone.version>2.5.1</errorprone.version>
+        <errorprone.version>2.6.0</errorprone.version>
         <groovy.version>3.0.7</groovy.version>
         <skipDeploy>false</skipDeploy>
     </properties>
