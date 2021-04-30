@@ -47,6 +47,7 @@
         <jacoco.version>0.8.6</jacoco.version>
         <errorprone.version>2.6.0</errorprone.version>
         <groovy.version>3.0.8</groovy.version>
+        <maven-plugin-tools.version>3.6.1</maven-plugin-tools.version>
         <skipDeploy>false</skipDeploy>
     </properties>
 
@@ -67,6 +68,11 @@
                 <groupId>com.google.errorprone</groupId>
                 <artifactId>javac</artifactId>
                 <version>9+181-r4173-1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>${maven-plugin-tools.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -149,8 +155,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <!-- Use version that contains fix for MNG-5346. -->
-                    <version>3.6.0</version>
+                    <version>${maven-plugin-tools.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
