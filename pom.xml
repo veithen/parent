@@ -44,7 +44,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
-        <jacoco.version>0.8.6</jacoco.version>
+        <jacoco.version>0.8.7</jacoco.version>
         <errorprone.version>2.6.0</errorprone.version>
         <groovy.version>3.0.8</groovy.version>
         <maven-plugin-tools.version>3.6.1</maven-plugin-tools.version>
