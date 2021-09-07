@@ -46,7 +46,7 @@
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.7</jacoco.version>
         <errorprone.version>2.9.0</errorprone.version>
-        <groovy.version>3.0.8</groovy.version>
+        <groovy.version>3.0.9</groovy.version>
         <maven-plugin-tools.version>3.6.1</maven-plugin-tools.version>
         <skipDeploy>false</skipDeploy>
     </properties>
