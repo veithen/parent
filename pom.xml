@@ -109,6 +109,7 @@
                     <configuration>
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
+                        <release>${javaRelease}</release>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.*</compilerArg>
@@ -318,21 +319,7 @@
                                     }
                                     
                                     javaVersion = project.properties['javaVersion']
-                                    if (javaVersion == '1.5') {
-                                        project.properties['signatureArtifactId'] = 'java15'
-                                        project.properties['signatureVersion'] = '1.0'
-                                        project.properties['javaRelease'] = '5'
-                                    } else if (javaVersion == '1.6') {
-                                        project.properties['signatureArtifactId'] = 'java16'
-                                        project.properties['signatureVersion'] = '1.1'
-                                        project.properties['javaRelease'] = '6'
-                                    } else if (javaVersion == '1.7') {
-                                        project.properties['signatureArtifactId'] = 'java17'
-                                        project.properties['signatureVersion'] = '1.0'
-                                        project.properties['javaRelease'] = '7'
-                                    } else if (javaVersion == '1.8') {
-                                        project.properties['signatureArtifactId'] = 'java18'
-                                        project.properties['signatureVersion'] = '1.0'
+                                    if (javaVersion == '1.8') {
                                         project.properties['javaRelease'] = '8'
                                     } else {
                                         project.properties['javaRelease'] = javaVersion
@@ -609,73 +596,6 @@
 
     <profiles>
         <profile>
-            <id>jdk8</id>
-            <activation>
-                <jdk>1.8</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.veithen.alta</groupId>
-                        <artifactId>alta-maven-plugin</artifactId>
-                        <version>0.7.1</version>
-                        <executions>
-                            <execution>
-                                <id>errorprone-javac-path</id>
-                                <phase>initialize</phase>
-                                <goals>
-                                    <goal>generate-properties</goal>
-                                </goals>
-                                <configuration>
-                                    <name>errorprone.javac.path</name>
-                                    <value>%file%</value>
-                                    <artifactSet>
-                                        <artifacts>
-                                            <artifact>
-                                                <groupId>com.google.errorprone</groupId>
-                                                <artifactId>javac</artifactId>
-                                            </artifact>
-                                        </artifacts>
-                                    </artifactSet>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <fork>true</fork>
-                            <compilerArgs combine.children="append">
-                                <compilerArg>-J-Xbootclasspath/p:${errorprone.javac.path}</compilerArg>
-                            </compilerArgs>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>animal-sniffer-maven-plugin</artifactId>
-                        <version>1.20</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                                <configuration>
-                                    <signature>
-                                        <groupId>org.codehaus.mojo.signature</groupId>
-                                        <artifactId>${signatureArtifactId}</artifactId>
-                                        <version>${signatureVersion}</version>
-                                    </signature>
-                                    <checkTestClasses>false</checkTestClasses>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>jdk16</id>
             <activation>
                 <jdk>[16,)</jdk>
@@ -700,27 +620,6 @@
                                 <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
                             </compilerArgs>
                         </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>jdk9</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>default-compile</id>
-                                <configuration>
-                                    <release>${javaRelease}</release>
-                                </configuration>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
