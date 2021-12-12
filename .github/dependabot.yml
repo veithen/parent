@@ -4,3 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "org.apache.maven.plugins:maven-plugin-plugin"
+        # 3.6.2 seems to break snapshot deployment
+        versions: "3.6.2"
