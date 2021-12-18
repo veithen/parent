@@ -595,6 +595,37 @@
 
     <profiles>
         <profile>
+            <id>derived-project</id>
+            <activation>
+                <file>
+                    <missing>${basedir}/.parent.marker</missing>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>enforce-output-timestamp-property</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <requireProperty>
+                                            <property>project.build.outputTimestamp</property>
+                                            <message>The property "project.build.outputTimestamp" must be set on the reactor's root pom.xml to make the build reproducible. Further information at "https://maven.apache.org/guides/mini/guide-reproducible-builds.html".</message>
+                                        </requireProperty>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>jdk16</id>
             <activation>
                 <jdk>[16,)</jdk>
