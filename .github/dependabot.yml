@@ -4,7 +4,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "org.apache.maven.plugins:maven-plugin-plugin"
-        # 3.6.2 is affected by MPLUGIN-384
-        versions: "3.6.2"
