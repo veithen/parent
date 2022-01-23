@@ -42,6 +42,7 @@
         <github.repository>parent</github.repository>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.outputTimestamp>2022-01-23T16:14:00Z</project.build.outputTimestamp>
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.7</jacoco.version>
