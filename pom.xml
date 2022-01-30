@@ -302,20 +302,22 @@
                                     if (project.groupId != 'com.github.veithen' && repository == 'parent') {
                                         throw new Error('github.repository not set')
                                     }
-                                    // We only care about the completeness of the Maven metadata if we actually deploy the artifact.
                                     if (project.properties['skipDeploy'] == 'false') {
                                         if (project.url.startsWith('https://github.com/') && project.url != "https://github.com/veithen/${repository}") {
                                             throw new Error('project.url not set correctly')
                                         }
-                                        if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
-                                            throw new Error('project.scm.url not set correctly')
-                                        }
-                                        if (project.scm.connection != "scm:git:http://github.com/veithen/${repository}.git") {
-                                            throw new Error('project.scm.connection not set correctly')
-                                        }
-                                        if (project.scm.developerConnection != "scm:git:https://github.com/veithen/${repository}.git") {
-                                            throw new Error('project.scm.developerConnection not set correctly')
-                                        }
+                                    }
+                                    // In theory we only care about the completeness of the Maven metadata if we actually
+                                    // deploy the artifact. However, some versions of the maven-release-plugin have issues
+                                    // with absent <scm> elements.
+                                    if (!project.scm.url.startsWith("https://github.com/veithen/${repository}/tree/master")) {
+                                        throw new Error('project.scm.url not set correctly')
+                                    }
+                                    if (project.scm.connection != "scm:git:http://github.com/veithen/${repository}.git") {
+                                        throw new Error('project.scm.connection not set correctly')
+                                    }
+                                    if (project.scm.developerConnection != "scm:git:https://github.com/veithen/${repository}.git") {
+                                        throw new Error('project.scm.developerConnection not set correctly')
                                     }
                                     
                                     javaVersion = project.properties['javaVersion']
