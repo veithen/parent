@@ -113,7 +113,7 @@
                         <showWarnings>true</showWarnings>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
-                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR -Xep:UnusedMethod:ERROR</compilerArg>
                         </compilerArgs>
                         <annotationProcessorPaths combine.children="append">
                             <annotationProcessorPath>
