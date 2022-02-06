@@ -110,9 +110,10 @@
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
                         <release>${javaRelease}</release>
+                        <showWarnings>true</showWarnings>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
-                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.*</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR</compilerArg>
                         </compilerArgs>
                         <annotationProcessorPaths combine.children="append">
                             <annotationProcessorPath>
