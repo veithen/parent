@@ -4,3 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      # 1.6.9 and 1.6.10 are broken; see NEXUS-31214.
+      - dependency-name: "org.sonatype.plugins:nexus-staging-maven-plugin"
+        versions: ["1.6.9", "1.6.10"]
