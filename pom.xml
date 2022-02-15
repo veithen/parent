@@ -585,13 +585,6 @@
                         <additionalSourceDirectory>src/it</additionalSourceDirectory>
                     </additionalSourceDirectories>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.google.googlejavaformat</groupId>
-                        <artifactId>google-java-format</artifactId>
-                        <version>1.13.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
