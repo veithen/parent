@@ -46,7 +46,7 @@
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.7</jacoco.version>
         <errorprone.version>2.11.0</errorprone.version>
-        <groovy.version>3.0.9</groovy.version>
+        <groovy.version>4.0.0</groovy.version>
         <maven-plugin-tools.version>3.6.4</maven-plugin-tools.version>
         <skipDeploy>false</skipDeploy>
     </properties>
@@ -334,12 +334,12 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>org.codehaus.groovy</groupId>
+                        <groupId>org.apache.groovy</groupId>
                         <artifactId>groovy</artifactId>
                         <version>${groovy.version}</version>
                     </dependency>
                     <dependency>
-                        <groupId>org.codehaus.groovy</groupId>
+                        <groupId>org.apache.groovy</groupId>
                         <artifactId>groovy-ant</artifactId>
                         <version>${groovy.version}</version>
                     </dependency>
