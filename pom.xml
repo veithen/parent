@@ -65,11 +65,6 @@
                 <version>${errorprone.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.google.errorprone</groupId>
-                <artifactId>javac</artifactId>
-                <version>9+181-r4173-1</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.maven.plugin-tools</groupId>
                 <artifactId>maven-plugin-annotations</artifactId>
                 <version>${maven-plugin-tools.version}</version>
