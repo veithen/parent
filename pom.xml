@@ -182,11 +182,6 @@
                     <version>3.2.2</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.github.veithen.maven</groupId>
-                    <artifactId>resolver-proxy-maven-plugin</artifactId>
-                    <version>0.2.0</version>
-                </plugin>
-                <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
                     <version>1.0.0</version>
