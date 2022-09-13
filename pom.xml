@@ -134,6 +134,7 @@
                         <!-- Enable the JaCoCo agent. This works because multiple JaCoCo sessions
                              can be written to the same jacoco.exec file. -->
                         <mavenOpts>${argLine}</mavenOpts>
+                        <streamLogsOnFailures>true</streamLogsOnFailures>
                     </configuration>
                 </plugin>
                 <plugin>
