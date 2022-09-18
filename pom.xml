@@ -495,9 +495,6 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <!-- Prevent commits with non-SNAPSHOT versions on the master branch
-                         (which cause continuous integration failures). -->
-                    <suppressCommitBeforeTag>true</suppressCommitBeforeTag>
                 </configuration>
             </plugin>
             <plugin>
