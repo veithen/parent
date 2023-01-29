@@ -416,6 +416,7 @@
                     <!-- Automatically configure the Byte Buddy agent if it's present in the dependencies.
                          This avoids problems with installation at runtime. -->
                     <execution>
+                        <id>byte-buddy-agent</id>
                         <goals>
                             <goal>generate-properties</goal>
                         </goals>
