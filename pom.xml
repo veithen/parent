@@ -527,7 +527,7 @@
             <plugin>
                 <groupId>de.jutzig</groupId>
                 <artifactId>github-release-plugin</artifactId>
-                <version>1.4.0</version>
+                <version>1.6.0</version>
                 <configuration>
                     <releaseName>${project.version}</releaseName>
                     <tag>${project.version}</tag>
