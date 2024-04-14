@@ -453,7 +453,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- plugin>
                 <groupId>com.github.veithen.maven</groupId>
                 <artifactId>jacoco-report-maven-plugin</artifactId>
                 <version>0.4.0</version>
@@ -464,7 +464,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin -->
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <!-- Disable the default deploy execution -->
