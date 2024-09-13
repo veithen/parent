@@ -129,9 +129,6 @@
                     <version>3.8.0</version>
                     <configuration>
                         <cloneProjectsTo>${project.build.directory}/its</cloneProjectsTo>
-                        <!-- Travis executes the build with -DskipTests=true first. -->
-                        <skipInstallation>${skipTests}</skipInstallation>
-                        <skipInvocation>${skipTests}</skipInvocation>
                         <!-- Enable the JaCoCo agent. This works because multiple JaCoCo sessions
                              can be written to the same jacoco.exec file. -->
                         <mavenOpts>${argLine}</mavenOpts>
@@ -318,6 +315,11 @@
                                         project.properties['javaRelease'] = '8'
                                     } else {
                                         project.properties['javaRelease'] = javaVersion
+                                    }
+
+                                    // Skip maven-invoker-plugin if tests are skipped.
+                                    if (session.systemProperties['maven.test.skip'] == 'true' || session.systemProperties['skipTests'] == 'true') {
+                                        project.properties['invoker.skip'] = 'true'
                                     }
                                 ]]></script>
                             </scripts>
