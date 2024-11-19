@@ -45,7 +45,7 @@
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.12</jacoco.version>
-        <errorprone.version>2.35.1</errorprone.version>
+        <errorprone.version>2.36.0</errorprone.version>
         <groovy.version>4.0.23</groovy.version>
         <surefire.version>3.5.2</surefire.version>
         <maven-plugin-tools.version>3.15.1</maven-plugin-tools.version>
@@ -109,6 +109,7 @@
                         <showWarnings>true</showWarnings>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
+                            <compilerArg>--should-stop=ifError=FLOW</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR -Xep:UnusedMethod:ERROR</compilerArg>
                         </compilerArgs>
                         <annotationProcessorPaths combine.children="append">
