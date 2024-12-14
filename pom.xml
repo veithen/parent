@@ -326,6 +326,13 @@
                                     if (session.systemProperties['maven.test.skip'] == 'true' || session.systemProperties['skipTests'] == 'true') {
                                         project.properties['invoker.skip'] = 'true'
                                     }
+
+                                    licenseUrl = project.licenses[0].url
+                                    if (licenseUrl == 'http://www.apache.org/licenses/LICENSE-2.0.txt') {
+                                        project.properties['license.licenseName'] = 'apache_v2'
+                                    } else if (licenseUrl == 'http://www.gnu.org/licenses/gpl.html') {
+                                        project.properties['license.licenseName'] = 'gpl_v3'
+                                    }
                                 ]]></script>
                             </scripts>
                         </configuration>
