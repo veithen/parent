@@ -232,7 +232,7 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.5.0</version>
                 <configuration>
-                    <organizationName>Andreas Veithen</organizationName>
+                    <organizationName>Andreas Veithen-Knowles</organizationName>
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
                     <trimHeaderLine>true</trimHeaderLine>
                     <canUpdateCopyright>true</canUpdateCopyright>
