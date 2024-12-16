@@ -40,6 +40,7 @@
 
     <properties>
         <github.repository>parent</github.repository>
+        <license.licenseName>apache_v2</license.licenseName>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.scm.id>github</project.scm.id>
@@ -327,11 +328,17 @@
                                         project.properties['invoker.skip'] = 'true'
                                     }
 
+                                    // We can't set license.licenseName here because that wouldn't apply to executions of
+                                    // mvn license:update-file-header from the command line. We can only check for
+                                    // consistency.
                                     licenseUrl = project.licenses[0].url
+                                    licenseName = project.properties['license.licenseName']
                                     if (licenseUrl == 'http://www.apache.org/licenses/LICENSE-2.0.txt') {
-                                        project.properties['license.licenseName'] = 'apache_v2'
+                                        assert licenseName == 'apache_v2'
                                     } else if (licenseUrl == 'http://www.gnu.org/licenses/gpl.html') {
-                                        project.properties['license.licenseName'] = 'gpl_v3'
+                                        assert licenseName == 'gpl_v3'
+                                    } else {
+                                        throw new Error('Unrecognized license')
                                     }
                                 ]]></script>
                             </scripts>
