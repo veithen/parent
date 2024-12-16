@@ -40,6 +40,7 @@
 
     <properties>
         <github.repository>parent</github.repository>
+        <license.projectName>${github.repository}</license.projectName>
         <license.licenseName>apache_v2</license.licenseName>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
