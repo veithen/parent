@@ -47,7 +47,7 @@
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.13</jacoco.version>
-        <errorprone.version>2.38.0</errorprone.version>
+        <errorprone.version>2.39.0</errorprone.version>
         <groovy.version>4.0.27</groovy.version>
         <surefire.version>3.5.3</surefire.version>
         <maven-plugin-tools.version>3.15.1</maven-plugin-tools.version>
