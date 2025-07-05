@@ -4,6 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      # 3.2.8 is broken.
+      - dependency-name: "org.apache.maven.plugins:maven-gpg-plugin"
+        versions: ["3.2.8"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
