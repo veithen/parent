@@ -377,7 +377,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <goals>
@@ -386,7 +386,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.6.0</version>
+                                    <version>3.6.1</version>
                                 </requireMavenVersion>
                                 <enforceBytecodeVersion>
                                     <maxJdkVersion>${javaVersion}</maxJdkVersion>
