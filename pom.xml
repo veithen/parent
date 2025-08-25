@@ -292,6 +292,10 @@
                         <configuration>
                             <scripts>
                                 <script><![CDATA[
+                                    import org.apache.maven.model.io.xpp3.MavenXpp3Reader
+
+                                    pom = new MavenXpp3Reader().read(new FileReader(project.file))
+
                                     if (project.groupId == 'com.github.veithen' && project.artifactId == 'parent') {
                                         project.properties['license.skipCheckLicense'] = 'true'
                                         project.properties['license.inceptionYear'] = '0'
@@ -304,6 +308,10 @@
                                         throw new Error('github.repository not set')
                                     }
                                     if (project.properties['skipDeploy'] == 'false') {
+                                        // Project name is required to deploy to Maven central.
+                                        if (pom.name == null) {
+                                            throw new Error('project.name not set')
+                                        }
                                         if (project.url.startsWith('https://github.com/') && project.url != "https://github.com/veithen/${repository}") {
                                             throw new Error('project.url not set correctly')
                                         }
