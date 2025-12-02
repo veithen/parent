@@ -111,7 +111,7 @@
                     <configuration>
                         <source>${javaVersion}</source>
                         <target>${javaVersion}</target>
-                        <release>${javaRelease}</release>
+                        <release>${javaVersion}</release>
                         <showWarnings>true</showWarnings>
                         <fork>true</fork>
                         <compilerArgs combine.children="append">
@@ -340,13 +340,6 @@
                                         throw new Error('project.scm.developerConnection not set correctly')
                                     }
                                     
-                                    javaVersion = project.properties['javaVersion']
-                                    if (javaVersion == '1.8') {
-                                        project.properties['javaRelease'] = '8'
-                                    } else {
-                                        project.properties['javaRelease'] = javaVersion
-                                    }
-
                                     // We can't set license.licenseName here because that wouldn't apply to executions of
                                     // mvn license:update-file-header from the command line. We can only check for
                                     // consistency.
