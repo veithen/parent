@@ -116,6 +116,7 @@
                         <fork>true</fork>
                         <compilerArgs combine.children="append">
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
+                            <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                             <compilerArg>--should-stop=ifError=FLOW</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR -Xep:UnusedMethod:ERROR</compilerArg>
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
