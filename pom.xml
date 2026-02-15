@@ -118,7 +118,7 @@
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                             <compilerArg>--should-stop=ifError=FLOW</compilerArg>
-                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:MissingOverride:ERROR -Xep:UnusedMethod:ERROR</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne -XepExcludedPaths:.*/target/.* -Xep:NullAway:ERROR -XepOpt:NullAway:OnlyNullMarked=true -Xep:MissingOverride:ERROR -Xep:UnusedMethod:ERROR</compilerArg>
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
@@ -135,6 +135,11 @@
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
                                 <version>${errorprone.version}</version>
+                            </annotationProcessorPath>
+                            <annotationProcessorPath>
+                                <groupId>com.uber.nullaway</groupId>
+                                <artifactId>nullaway</artifactId>
+                                <version>0.12.7</version>
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
                     </configuration>
