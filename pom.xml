@@ -53,7 +53,7 @@
         <jacoco.version>0.8.14</jacoco.version>
         <errorprone.version>2.47.0</errorprone.version>
         <groovy.version>5.0.4</groovy.version>
-        <surefire.version>3.5.4</surefire.version>
+        <surefire.version>3.5.5</surefire.version>
         <maven-plugin-tools.version>3.15.2</maven-plugin-tools.version>
         <skipDeploy>false</skipDeploy>
     </properties>
