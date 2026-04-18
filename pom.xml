@@ -52,6 +52,7 @@
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.14</jacoco.version>
         <errorprone.version>2.49.0</errorprone.version>
+        <nullaway.version>0.12.15</nullaway.version>
         <groovy.version>5.0.5</groovy.version>
         <surefire.version>3.5.5</surefire.version>
         <maven-plugin-tools.version>3.15.2</maven-plugin-tools.version>
@@ -70,6 +71,16 @@
                 <groupId>com.google.errorprone</groupId>
                 <artifactId>error_prone_annotations</artifactId>
                 <version>${errorprone.version}</version>
+            </dependency>
+            <!-- This is here mostly to enable Dependabot updates for NullAway. Otherwise NullAway
+                 would only be used in annotationProcessorPaths, and Dependabot doesn't update
+                 them. -->
+            <dependency>
+                <groupId>com.uber.nullaway</groupId>
+                <artifactId>nullaway-bom</artifactId>
+                <version>${nullaway.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.plugin-tools</groupId>
@@ -139,7 +150,7 @@
                             <annotationProcessorPath>
                                 <groupId>com.uber.nullaway</groupId>
                                 <artifactId>nullaway</artifactId>
-                                <version>0.12.7</version>
+                                <version>${nullaway.version}</version>
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
                     </configuration>
