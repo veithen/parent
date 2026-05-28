@@ -54,7 +54,7 @@
         <errorprone.version>2.49.0</errorprone.version>
         <nullaway.version>0.13.6</nullaway.version>
         <groovy.version>5.0.6</groovy.version>
-        <surefire.version>3.5.5</surefire.version>
+        <surefire.version>3.5.6</surefire.version>
         <maven-plugin-tools.version>3.15.2</maven-plugin-tools.version>
         <skipDeploy>false</skipDeploy>
     </properties>
