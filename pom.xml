@@ -51,7 +51,7 @@
         <project.scm.id>github</project.scm.id>
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.15</jacoco.version>
-        <errorprone.version>2.49.0</errorprone.version>
+        <errorprone.version>2.50.0</errorprone.version>
         <nullaway.version>0.13.6</nullaway.version>
         <groovy.version>5.0.6</groovy.version>
         <surefire.version>3.5.6</surefire.version>
