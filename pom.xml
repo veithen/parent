@@ -52,7 +52,7 @@
         <javaVersion>1.8</javaVersion>
         <jacoco.version>0.8.15</jacoco.version>
         <errorprone.version>2.50.0</errorprone.version>
-        <nullaway.version>0.13.7</nullaway.version>
+        <nullaway.version>0.13.8</nullaway.version>
         <groovy.version>5.0.7</groovy.version>
         <surefire.version>3.5.6</surefire.version>
         <maven-plugin-tools.version>3.15.2</maven-plugin-tools.version>
